@@ -91,17 +91,17 @@ const MatchesTable = memo<MatchesTableProps>(({ matches }) => {
               )}
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <TableCell className="font-medium max-w-[200px]">
+              <TableCell className="font-medium min-w-[250px] max-w-[300px]">
                 <div className="truncate" title={match.hotel_name}>
                   {match.hotel_name}
                 </div>
               </TableCell>
-              <TableCell className="max-w-[150px]">
+              <TableCell className="min-w-[200px] max-w-[250px]">
                 <div className="truncate" title={match.room_type}>
                   {match.room_type}
                 </div>
               </TableCell>
-              <TableCell className="text-sm text-muted-foreground min-w-[140px]">
+              <TableCell className="text-sm text-muted-foreground min-w-[180px]">
                 {formatPeriod(match.period_start, match.period_end)}
               </TableCell>
               <TableCell className="text-right font-mono tabular-nums">

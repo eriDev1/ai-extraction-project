@@ -45,22 +45,43 @@ const FileUpload = memo<FileUploadProps>(({
       </div>
       
       <div className="relative group">
-        <Input
-          id={fileId}
-          type="file"
-          accept=".pdf,.xlsx,.xls"
-          {...register(fileId)}
-          className={cn(
-            "h-12 transition-all duration-200",
-            "file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0",
-            "file:text-sm file:font-semibold file:transition-colors",
-            "file:bg-primary file:text-primary-foreground hover:file:bg-primary/90",
-            "focus:ring-2 focus:ring-primary/20 focus:border-primary",
-            "group-hover:border-primary/50",
-            error && "border-destructive focus:ring-destructive/20 focus:border-destructive"
-          )}
-        />
-        <Upload className="absolute right-3 top-3 w-6 h-6 text-muted-foreground pointer-events-none transition-colors group-hover:text-primary/70" />
+        <div className={cn(
+          "relative border-2 border-dashed rounded-xl p-6 transition-all duration-300",
+          "hover:border-primary/50 hover:bg-primary/5",
+          "focus-within:border-primary focus-within:bg-primary/5",
+          error && "border-destructive/50 bg-destructive/5",
+          !error && "border-muted-foreground/25"
+        )}>
+          <Input
+            id={fileId}
+            type="file"
+            accept=".pdf,.xlsx,.xls"
+            {...register(fileId)}
+            className={cn(
+              "absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10",
+              "file:cursor-pointer"
+            )}
+          />
+          <div className="text-center space-y-3">
+            <div className={cn(
+              "mx-auto w-12 h-12 rounded-full flex items-center justify-center transition-colors",
+              error ? "bg-destructive/10" : "bg-primary/10 group-hover:bg-primary/20"
+            )}>
+              <Upload className={cn(
+                "w-6 h-6 transition-colors",
+                error ? "text-destructive" : "text-primary"
+              )} />
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm font-medium text-foreground">
+                Click to upload or drag and drop
+              </p>
+              <p className="text-xs text-muted-foreground">
+                PDF, XLSX, XLS files up to 10MB
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       
       {file && (

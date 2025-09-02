@@ -98,17 +98,17 @@ const UniqueItemsTable = memo<UniqueItemsTableProps>(({
                 )}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <TableCell className="font-medium max-w-[200px]">
+                <TableCell className="font-medium min-w-[250px] max-w-[300px]">
                   <div className="truncate" title={item.hotel_name}>
                     {item.hotel_name}
                   </div>
                 </TableCell>
-                <TableCell className="max-w-[150px]">
+                <TableCell className="min-w-[200px] max-w-[250px]">
                   <div className="truncate" title={item.room_type}>
                     {item.room_type}
                   </div>
                 </TableCell>
-                <TableCell className="text-sm text-muted-foreground min-w-[140px]">
+                <TableCell className="text-sm text-muted-foreground min-w-[180px]">
                   {formatPeriod(item.period_start, item.period_end)}
                 </TableCell>
                 <TableCell className="text-right font-mono tabular-nums">

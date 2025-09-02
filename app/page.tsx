@@ -65,7 +65,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
         <PageHeader />
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Card className="mb-8 border-0 shadow-xl bg-card/60 backdrop-blur-sm">
             <CardHeader className="text-center pb-8">
               <CardTitle className="text-2xl font-semibold">Upload Documents</CardTitle>
@@ -125,10 +125,17 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          {(mutation.isSuccess || mutation.isPending) && (
+          {mutation.isPending && (
             <ComparisonResults 
-              data={mutation.data!} 
-              isLoading={mutation.isPending}
+              data={undefined as any} 
+              isLoading={true}
+            />
+          )}
+          
+          {mutation.isSuccess && mutation.data && (
+            <ComparisonResults 
+              data={mutation.data} 
+              isLoading={false}
             />
           )}
         </div>
