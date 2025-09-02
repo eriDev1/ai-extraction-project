@@ -54,7 +54,7 @@ const MatchesTable = memo<MatchesTableProps>(({ matches }) => {
   };
 
   const getDeltaColor = (delta: number) => {
-    if (delta > 0) return "text-red-600";
+    if (delta > 0) return "text-white";
     if (delta < 0) return "text-green-600";
     return "text-muted-foreground";
   };
