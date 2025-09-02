@@ -1,0 +1,9 @@
+// Component exports for better organization
+export { FileUpload } from "./file-upload";
+export { LoadingState } from "./loading-state";
+export { ErrorState } from "./error-state";
+export { SummaryStats } from "./summary-stats";
+export { MatchesTable } from "./matches-table";
+export { UniqueItemsTable } from "./items-table";
+export { ComparisonResults } from "./comparison-results";
+export { PageHeader } from "./page-header";
